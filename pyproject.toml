@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sx126x"
+version = "2.0.0"
+requires-python = ">= 3.8"
+dependencies = [
+    "pyserial==3.5",
+    "RPi.GPIO==0.7.1",
+]
+authors = [{name = "nbdy"}]
+maintainers = [{name = "nbdy"}]
+readme = "README.md"
+license = {text = "MIT License"}
+keywords = ["sx126x", "lora"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/nbdy/pysx126x"
+Documentation = "https://github.com/nbdy/pysx126x/wiki"
+Repository = "https://github.com/nbdy/pysx126x.git"
+Issues = "https://github.com/nbdy/pysx126x/issues"
