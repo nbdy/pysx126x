@@ -1,16 +1,18 @@
 # sx126x
 
-## install
+A Python library for interfacing with SX126X LoRa modules. This library provides a simple API for configuring and using SX126X devices for wireless communication.
+
+## Hardware Requirements
+
+This library is designed to work with SX126X LoRa modules connected to a Raspberry Pi. The default configuration assumes the module is connected to GPIO pins 5 and 6 for mode control, but this can be customized.
+
+## Installation
 
 ```shell
 pip install sx126x
 ```
 
-## development
-
-For development setup and release process information, please see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## defaults
+## Default Configuration
 
 | Parameter            | Default Value              | Description                                                           |
 |----------------------|----------------------------|-----------------------------------------------------------------------|
@@ -42,63 +44,20 @@ For development setup and release process information, please see [CONTRIBUTING.
 | `overwrite_defaults` | `True`                     | Whether to override internal default parameters                       |
 
 
-## features
+## Usage Examples
 
-- [X] mock interface for testing without hardware
-- [ ] configuration
-  - [X] address
-    - [X] hi
-    - [X] lo
-    - [X] hi:lo
-  - [X] net id
-  - [X] baud rate
-  - [X] parity
-  - [X] air speed
-  - [X] ambient noise
-  - [X] transmit power
-  - [X] channel
-  - [X] rssi
-  - [X] transfer mode
-  - [X] lbt
-  - [X] wor control
-  - [X] wor period
-  - [?] crypt key (data does not persist?)
-    - [?] hi
-    - [?] lo
-    - [?] hilo
-  - [ ] module info
-- [X] mode switching
-- [X] rx (& rx loop)
-- [X] tx
-- [X] tests
-- [ ] documentation
-- [ ] examples
-  - [X] defaults
-  - [X] rx
-  - [X] tx
-  - [X] mock
-  - [ ] configuration (look at tests for now)
+The following examples demonstrate how to use the SX126X library for basic sending and receiving operations.
 
-## examples
-
-### mock interface
-
-The `MockSX126X` class provides a mock implementation of the SX126X interface for testing without requiring the actual hardware. It simulates the bit-encoded properties and register behavior of the SX1262 device.
-
-This class is available in the test directory and is not part of the public API. It is intended for testing purposes only.
-
-For examples of how to use the mock interface, see the `test/mock_example.py` file.
-
-### sender
+### Sender
 
 ```python
 from sx126x import SX126X, Address
 
 lora = SX126X(Address(3, 4))
-lora.tx(Address(6, 9), b"DIE")
+lora.tx(Address(6, 9), b"Hello from device 3.4")
 ```
 
-### receiver
+### Receiver
 
 ```python
 from sx126x import SX126X, Address
@@ -107,7 +66,8 @@ lora = SX126X(Address(6, 9))
 address, data = lora.rx()
 # or
 def lora_cb(address: Address, data: bytes) -> bool:
-  if address.__str__() == "3.4" and data == b"DIE":
+  if address.__str__() == "3.4" and data == b"Hello from device 3.4":
+    print(f"Received message: {data.decode()}")
     return False  # stop receiving
   return True  # continue receiving
 lora.rx_loop(lora_cb)
