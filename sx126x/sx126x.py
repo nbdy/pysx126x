@@ -3,6 +3,7 @@ from pathlib import Path
 from time import sleep
 from typing import Optional, Callable
 
+from loguru import logger
 from serial import Serial
 
 from sx126x.enums import AirSpeed, AmbientNoise, BaudRate, Command, Mode, PacketSize, Parity, Register, TransmitPower, \
@@ -14,7 +15,7 @@ try:
     import RPi.GPIO as GPIO
 except (ImportError, RuntimeError):
     GPIO = None
-    print("Warning: RPi.GPIO not imported")
+    logger.warning("RPi.GPIO not imported")
 
 
 class SX126X(object):
@@ -115,7 +116,7 @@ class SX126X(object):
 
     def __debug(self, msg: str):
         if self._debug:
-            print(msg)
+            logger.debug(msg)
 
     def set_mode(self, mode: Mode) -> bool:
         m0_state = None
@@ -157,13 +158,13 @@ class SX126X(object):
         data_len = len(data)
         rcv = self.serial.read(data_len + read_length if read_length is not None else data_len)
         if len(rcv) == 0:
-            print("Could not write command. Trying again.")
+            logger.warning("Could not write command. Trying again.")
             if retries > 0:
                 retries -= 1
                 sleep(retry_delay.total_seconds())
                 return self._write(data, retries, retry_delay)
             else:
-                print("No retries left. Operation failed.")
+                logger.error("No retries left. Operation failed.")
                 return None
         self.__debug(f"TX: {data}")
         self.__debug(f"RX: {rcv}")
@@ -478,7 +479,7 @@ class SX126X(object):
         if len(data) == 0:
             return None
         if len(data) < 6:
-            print(data.decode())
+            logger.debug(f"Received data: {data}")
             return None
         tx_addr = Address(data[0], data[1])
         payload = data[2:]

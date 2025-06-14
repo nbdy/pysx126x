@@ -6,6 +6,10 @@
 pip install sx126x
 ```
 
+## development
+
+For development setup and release process information, please see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## defaults
 
 | Parameter            | Default Value              | Description                                                           |
