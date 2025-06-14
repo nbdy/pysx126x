@@ -44,6 +44,7 @@ For development setup and release process information, please see [CONTRIBUTING.
 
 ## features
 
+- [X] mock interface for testing without hardware
 - [ ] configuration
   - [X] address
     - [X] hi
@@ -75,9 +76,18 @@ For development setup and release process information, please see [CONTRIBUTING.
   - [X] defaults
   - [X] rx
   - [X] tx
+  - [X] mock
   - [ ] configuration (look at tests for now)
 
-## example
+## examples
+
+### mock interface
+
+The `MockSX126X` class provides a mock implementation of the SX126X interface for testing without requiring the actual hardware. It simulates the bit-encoded properties and register behavior of the SX1262 device.
+
+This class is available in the test directory and is not part of the public API. It is intended for testing purposes only.
+
+For examples of how to use the mock interface, see the `test/mock_example.py` file.
 
 ### sender
 

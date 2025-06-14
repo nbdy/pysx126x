@@ -8,7 +8,7 @@ from sx126x.models import CryptKey
 from sx126x.sx126x import SX126X
 
 
-class ConfigurationTests(TestCase):
+class HardwareTests(TestCase):
     def setUp(self):
         self.lora = SX126X(
             port="/dev/ttyAMA0",
