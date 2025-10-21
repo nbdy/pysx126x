@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class AirSpeed(Enum):
     K0_3 = 0.3
     K1_2 = 1.2

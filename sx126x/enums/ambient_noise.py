@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class AmbientNoise(Enum):
     DISABLED = 0
     ENABLED = 1

@@ -11,6 +11,7 @@ from sx126x.enums import AirSpeed, AmbientNoise, BaudRate, Command, Mode, Packet
 from sx126x.models import Address, CryptKey
 from sx126x.util import get_port
 
+
 try:
     import RPi.GPIO as GPIO
 except (ImportError, RuntimeError):

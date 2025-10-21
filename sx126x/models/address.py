@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 
 
-
 def parse_address(addr: str) -> tuple[int, int]:
     parts = addr.split(".")
     if len(parts) != 2:

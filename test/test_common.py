@@ -1,9 +1,7 @@
 import unittest
-from abc import ABC, abstractmethod
 
-from sx126x import SX126X, BaudRate, Address
-from sx126x.enums import TransmitPower, RSSI, TransferMethod, Relay, LBT, WORControl, WORPeriod, AirSpeed, AmbientNoise, \
-    PacketSize, Mode, Parity
+from sx126x import SX126X, Address
+from sx126x.enums import TransmitPower, AirSpeed, Mode
 from sx126x.models import CryptKey
 from test.mock_sx126x import MockSX126X
 
