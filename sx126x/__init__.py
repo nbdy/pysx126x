@@ -3,7 +3,7 @@ from sx126x.enums import *
 from sx126x.models import *
 
 
-__version__ = "2.2.1"
+__version__ = "2.2.4"
 
 __all__ = [
     "SX126X",
