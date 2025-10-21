@@ -11,6 +11,17 @@ Thank you for your interest in contributing to pysx126x! This document provides 
    ```
 
 2. Install development dependencies:
+
+   **Using uv (recommended):**
+   ```shell
+   # Install uv if you haven't already
+   # See https://docs.astral.sh/uv/getting-started/installation/
+   
+   # Install dependencies
+   uv sync --all-extras
+   ```
+
+   **Using pip (alternative):**
    ```shell
    pip install -e ".[dev]"
    ```

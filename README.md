@@ -8,9 +8,17 @@ This library is designed to work with SX126X LoRa modules connected to a Raspber
 
 ## Installation
 
+**Using pip:**
 ```shell
 pip install sx126x
 ```
+
+**Using uv:**
+```shell
+uv pip install sx126x
+```
+
+For more information about uv, see https://docs.astral.sh/uv/
 
 ## Default Configuration
 
