@@ -2,8 +2,6 @@ import unittest
 
 from sx126x import Address
 from sx126x.enums import Mode
-from sx126x.models import CryptKey
-
 from test.mock_sx126x import MockSX126X
 from test.test_common import SX126XTestMixin
 

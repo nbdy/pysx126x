@@ -1,10 +1,9 @@
-from typing import Optional, Callable, Dict, Any
-from datetime import timedelta
 from time import sleep
+from typing import Optional, Callable, Dict, Any
 
 from loguru import logger
 
-from sx126x.enums import AirSpeed, AmbientNoise, BaudRate, Command, Mode, PacketSize, Parity, Register, TransmitPower, \
+from sx126x.enums import AirSpeed, AmbientNoise, BaudRate, Mode, PacketSize, Parity, Register, TransmitPower, \
     RSSI, TransferMethod, Relay, WORControl, WORPeriod, LBT
 from sx126x.models import Address, CryptKey
 
