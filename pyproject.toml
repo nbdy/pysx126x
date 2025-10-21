@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sx126x"
-version = "2.2.0"
-requires-python = ">= 3.8"
+version = "2.2.1"
+requires-python = ">= 3.9"
 dependencies = [
     "pyserial==3.5",
     "RPi.GPIO==0.7.1",
-    "loguru>=0.7.0",
+    "loguru==0.7.3",
 ]
 authors = [{name = "nbdy"}]
 maintainers = [{name = "nbdy"}]
@@ -31,8 +31,5 @@ Issues = "https://github.com/nbdy/pysx126x/issues"
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0.0",
-    "pytest-cov>=4.0.0",
-    "build>=1.0.0",
-    "twine>=4.0.0",
+    "pytest>=8.4.2",
 ]
